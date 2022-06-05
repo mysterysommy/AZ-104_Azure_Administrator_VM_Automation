@@ -9,7 +9,8 @@ sudo waagent -deprovision+user
 exit
 
 # Set variables
-$rg = (Get-AzResourceGroup).ResourceGroupName
+#using power shell $rg = (Get-AzResourceGroup).ResourceGroupName
+$rg = az group list --query [].name -o tsv
 $myvm = az vm list --query [].name -o tsv
 
 # Deallocate VM (may take a few minutes)
